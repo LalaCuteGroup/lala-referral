@@ -1,0 +1,15 @@
+{
+  "name": "lala-referal-lambdas",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/uuid": "*"
+  },
+  "dependencies": {
+    "aws-sdk": "*",
+    "uuid": "*"
+  }
+}
