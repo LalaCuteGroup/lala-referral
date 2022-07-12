@@ -5,8 +5,12 @@ import { TgBotServiceStack } from '../lib/TgBotServiceStack';
 import { DynamoStack } from '../lib/DynamoStack';
 
 const app = new cdk.App();
-new TgBotServiceStack(app, 'TgBotServiceStack', {
+
+const dynamoStack = new DynamoStack(app, 'DatabaseStack', {
+
 });
 
-new DynamoStack(app, 'DatabaseStack', {
+new TgBotServiceStack(app, 'TgBotServiceStack', {
+  pingTable: dynamoStack.pingTable,
 });
+

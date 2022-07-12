@@ -2,11 +2,13 @@ import { CfnOutput, RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib';
 import { AttributeType, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Construct } from 'constructs';
 
+
 export class DynamoStack extends Stack {
+  pingTable: Table;
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const pingTable = new Table(this, 'ping-items', {
+    this.pingTable = new Table(this, 'ping-items', {
       partitionKey: {
         name: 'itemId',
         type: AttributeType.STRING
@@ -16,9 +18,6 @@ export class DynamoStack extends Stack {
     });
 
 
-    new CfnOutput(this, "PingTableArn", {
-      value: pingTable.tableArn,
-      exportName: "PingTableArn",
-    });
+    this.exportValue(this.pingTable.tableArn);
   }
 }
