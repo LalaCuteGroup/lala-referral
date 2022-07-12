@@ -1,10 +1,40 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Please at least install `docker`, `make` and  `npm` before getting started.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `make setup`
+
+It install the dependencies for launching and developing the application.
+You can also use this command to update the node modules if the dependency list is updated
+
+### `make build`
+
+To build up the docker image for application.
+Please be aware that you will need to run `make setup` in order to get the `node_modules` ready
+
+### `make run`
+
+Run application as a server container.
+Will be able to access the application as shown in the prompt.
+
+### `make test`
+
+Run test to the application without spwaning a container shell. 
+
+### `make debug`
+
+Run interactive shell for debug purpose.
+
+### `make clean`
+
+Remove image and clean up the whole docker system (Use with caution).
+
+In the `make debug` interactive shell, you can do: 
 
 ### `npm start`
 
